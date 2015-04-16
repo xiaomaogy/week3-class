@@ -9,7 +9,7 @@
 
   <% @movies.each do |movie| %>
     <li>
-      <%= link_to movie[:title], "/movies/details?id=#{movie[:id]}" %>
+      <%= link_to movie[:title], "/movies/#{movie[:id]}" %>
       (<%= movie[:year] %>)
     </li>
   <% end %>

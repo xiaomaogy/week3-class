@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
-  get '/' => 'movies#index'
+  root 'movies#index'
 
   get '/movies' => 'movies#index'
 
-  get '/movies/details' => 'movies#show'
+  # This is a dynamic segment
+  get '/movies/:id' => 'movies#show'
+
+  # get '/movies/details' => 'movies#show'
 
   get '/secret' => 'movies#secret'
 
