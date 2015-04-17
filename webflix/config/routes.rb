@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root 'movies#index'
 
+  #this is another test file
+
   get '/movies' => 'movies#index'
 
   # This is a dynamic segment
