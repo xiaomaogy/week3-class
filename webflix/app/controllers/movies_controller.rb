@@ -14,12 +14,12 @@ class MoviesController < ApplicationController
     @movie = Movie.find_by(:id => params["id"])
 
     if @movie != nil
-      # data = JSON.parse(open("http://www.omdbapi.com/?i=#{@movie[:omdb_key]}&plot=full&r=json").read)
-      # @movie[:rated] = data["Rated"]
-      # @movie[:runtime] = data["Runtime"]
-      # @movie[:director] = data["Director"]
-      # @movie[:plot] = data["Plot"]
-      # @movie[:poster_url] = data["Poster"]
+      data = JSON.parse(open("http://www.omdbapi.com/?i=#{@movie[:omdb_key]}&plot=full&r=json").read)
+      @movie.rated = data["Rated"]
+      @movie.runtime = data["Runtime"]
+      @movie.director = data["Director"]
+      @movie.plot = data["Plot"]
+      @movie.poster_url = data["Poster"]
       render "show"
     else
       redirect_to "/", notice: "Movie not found."
